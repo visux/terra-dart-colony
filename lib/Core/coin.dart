@@ -6,7 +6,7 @@ import '../src/rest/Json/CoinJSON.dart';
 import 'Numeric.dart';
 
 class Coin implements Numeric<Coin, dynamic> {
-  final double? amount;
+  final BigInt? amount;
   final String? denom;
 
   Coin(this.denom, this.amount);
@@ -20,11 +20,11 @@ class Coin implements Numeric<Coin, dynamic> {
   }
 
   static Coin fromJSON(CoinJSON data) {
-    return Coin(data.denom, double.parse(data.amount!));
+    return Coin(data.denom, BigInt.parse(data.amount!));
   }
 
   static Coin fromProto(CF.Coin data) {
-    return Coin(data.denom, double.parse(data.amount));
+    return Coin(data.denom, BigInt.parse(data.amount));
   }
 
   CoinDataArgs toData() {
@@ -79,7 +79,7 @@ class Coin implements Numeric<Coin, dynamic> {
       throw Exception("failed to parse to Coin: $str");
     }
 
-    var amount = double.parse(str[1]);
+    var amount = BigInt.parse(str[1]);
     var denom = str[3];
 
     return Coin(denom, amount);
@@ -87,36 +87,36 @@ class Coin implements Numeric<Coin, dynamic> {
 
   @override
   Coin add(value) {
-    return Coin(denom, amount! + double.parse(value));
+    return Coin(denom, amount! + BigInt.parse(value));
   }
 
   @override
   Coin div(value) {
-    return Coin(denom, amount! / double.parse(value));
+    return Coin(denom, (amount! / BigInt.parse(value)) as BigInt?);
   }
 
   @override
   Coin mod(value) {
-    return Coin(denom, double.parse(value).abs());
+    return Coin(denom, BigInt.parse(value).abs());
   }
 
   @override
   Coin mul(value) {
-    return Coin(denom, amount! * double.parse(value));
+    return Coin(denom, amount! * BigInt.parse(value));
   }
 
   @override
   Coin sub(value) {
-    return Coin(denom, amount! - double.parse(value));
+    return Coin(denom, amount! - BigInt.parse(value));
   }
 }
 
 class CoinAminoArgs {
   String? denom;
-  double? amount;
+  BigInt? amount;
 }
 
 class CoinDataArgs {
   String? denom;
-  double? amount;
+  BigInt? amount;
 }

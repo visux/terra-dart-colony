@@ -35,7 +35,7 @@ void main() {
 
       print("ACC ADDRESS: ${wallet.accAddress}");
       var send =
-          MsgSend(wallet.accAddress, rAddr, [Coin(CoinDenoms.ULUNA, 20)]);
+          MsgSend(wallet.accAddress, rAddr, [Coin(CoinDenoms.ULUNA, new BigInt.from(20))]);
 
       var msgs = <dynamic>[send];
 
