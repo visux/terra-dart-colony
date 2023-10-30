@@ -17,7 +17,7 @@ void main() {
     });
 
     test('First Test', () async {
-      TerraStartup.initializeKernel(TerraEnvironment.luna2TestNet);
+      TerraStartup.initializeKernel(TerraEnvironment.classic);
       //Name = "test2",
       //Address = "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
       //Pubkey = "terrapub1addwnpepqdw9s9agjmw4fgntfuytd2x7qha94zlvv0edntkt7g3amz4wg75ewy9755w",
