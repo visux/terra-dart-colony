@@ -24,7 +24,7 @@ class TreasuryAPI extends BaseAPI {
     if (response.successful!) {
       var result = TreasuryTaxCap.fromJson(response.result!);
       return result.tax_caps
-          .map((w) => Coin(w.denom, double.parse(w.tax_cap)))
+          .map((w) => Coin(w.denom, BigInt.parse(w.tax_cap)))
           .toList();
     }
 
@@ -90,7 +90,7 @@ class TreasuryAPI extends BaseAPI {
     var response = await apiRequester.getAsync<TreasuryTaxSeignorage>(rootPath);
     if (response.successful!) {
       var result = TreasuryTaxSeignorage.fromJson(response.result!);
-      return Coin(CoinDenoms.ULUNA, double.parse(result.seigniorage_proceeds));
+      return Coin(CoinDenoms.ULUNA, BigInt.parse(result.seigniorage_proceeds));
     }
 
     throw Exception("");

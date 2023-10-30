@@ -62,7 +62,7 @@ class TxBroadcastAPI extends BaseAPI {
 
     var totalFeeWithBurnTax = (taxTotal + totalGas).roundToDouble();
 
-    return Fee(gas, [Coin(feeDenom, totalFeeWithBurnTax)]);
+    return Fee(gas, [Coin(feeDenom, BigInt.from(totalFeeWithBurnTax))]);
   }
 
   ///// <summary>

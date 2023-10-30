@@ -81,7 +81,7 @@ class Wallet {
             TxBody(null, "Running Gas Estimation", 0),
             AuthInfo(
                 [],
-                Fee(gasLimit, [Coin(coinTypeForGas, txAmount)],
+                Fee(gasLimit, [Coin(coinTypeForGas, BigInt.from(txAmount))],
                     granter: accAddress)),
             []),
         walletOptions,
