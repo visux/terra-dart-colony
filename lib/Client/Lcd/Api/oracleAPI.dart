@@ -38,7 +38,7 @@ class OracleAPI extends BaseAPI {
       var result = OracleApiExchangeRateApi.fromJson(response.result!);
 
       return Coin.fromData(CoinDataArgs()
-        ..amount = double.parse(result.exchange_rate)
+        ..amount = BigInt.parse(result.exchange_rate)
         ..denom = denom);
     }
 

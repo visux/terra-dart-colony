@@ -58,7 +58,7 @@ class FeeGrantAPI extends BaseAPI {
         ..spend_Limit = [
           CoinDataArgs()
             ..denom = CoinDenoms.ULUNA
-            ..amount = double.parse(allowance[0].allowance!.value!)
+            ..amount = BigInt.parse(allowance[0].allowance!.value!)
         ]);
     }
 
